@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catálogo de Servicios | Portal de Servicios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f7f9fb",
+                    "surface-tint": "#545f73",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#c88000",
+                    "inverse-primary": "#bcc7de",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-background": "#191c1e",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary-container": "#8590a6",
+                    "surface-bright": "#f7f9fb",
+                    "outline-variant": "#c5c6cd",
+                    "secondary": "#505f76",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#bcc7de",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e6e8ea",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "primary-fixed": "#d8e3fb",
+                    "on-surface": "#191c1e",
+                    "outline": "#75777d",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "on-primary-fixed": "#111c2d",
+                    "tertiary-fixed": "#ffddb8",
+                    "primary": "#091426",
+                    "on-secondary-container": "#54647a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "on-surface-variant": "#45474c",
+                    "tertiary-container": "#3c2300",
+                    "primary-container": "#1e293b",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-fixed": "#2a1700",
+                    "tertiary": "#201100",
+                    "accent": "#f59e0b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "container-max": "1280px",
+                    "stack-lg": "2rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1rem",
+                    "margin-mobile": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 6px -1px rgb(30 41 59 / 0.05);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50 shadow-sm h-20">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                Portal de Servicios
+            </div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="index.html">Inicio</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-bold pb-1 font-label-md text-label-md" href="servicios.html">Servicios</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="portafolio.html">Portafolio</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="portal.html">Portal</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="cotizador.html">Cotizador</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-accent text-white px-6 py-2 rounded-lg font-label-md text-label-md font-bold hover:brightness-110 active:scale-95 transition-all duration-150">
+                    Cotizar Ahora
+                </button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="min-h-screen">
+<!-- Hero / Section Header -->
+<header class="py-16 md:py-24 px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7">
+<span class="text-accent font-label-md text-label-md tracking-widest uppercase mb-4 block">Excelencia Industrial</span>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-6 leading-tight">Nuestros Servicios Especializados</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Brindamos soluciones integrales de alta precisión en ingeniería, energía y mantenimiento industrial, diseñadas para optimizar la eficiencia de su infraestructura.
+                    </p>
+</div>
+<div class="md:col-span-5 relative hidden md:block h-64 rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A professional engineering workspace showing high-detail architectural blueprints on a modern desk with technical instruments. The lighting is crisp and bright, highlighting a clean corporate environment with subtle slate and primary blue accents. The mood is focused and professional, representing industrial precision and technical expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSlQ7XeDwUmPpsrV68sz6ri_tG-jngPpEk2dCF6ux-LSOv6j3uxmrhj4M0uI0wl4YYDMmMzyadZFu3hugiU36tAEUzQN0PevBk_2mJtAixW-26DFEfrdbxn3WPQvSTmLbPK6faoLLG_B1vtMDruYV8VySGSgQyWU_ItbGtme06KuDYhLY4iok17mW5l70gNNztV31sVroLEJ256GAgGerw0eA3_7o-Q3VBiI_-bg8CLmYEgBFSlGsTuTFgISUCrbAMdNtB0aP4Bxjk"/>
+</div>
+</div>
+</header>
+<!-- Services Grid -->
+<section class="pb-24 px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1: Ingeniería Eléctrica -->
+<article class="service-card group bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col custom-shadow">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close-up of industrial electrical panels with complex wiring and safety circuits. The image uses a clean, high-contrast lighting style with deep blacks and vibrant orange warning labels. The setting is a pristine industrial facility, emphasizing safety and technical rigor. Cinematic depth of field with sharp focus on technical components." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpcUtl8zgdR-IbG5Bf6edFSZiCcU_cDrjeeV1UGAJAQDogsn2KgSyrGbnrb3XL1W8wY5UyUiEgDtIzrWigZIDEs9WmZP17zBwX0tRgO5CnLGvZWjuQ-WmADHaRdirUqQsw17_0NYqLpZ_yoBKDsK8zvqvK79N4MbQTeZvpxMWxNv5vUiH3PvAMGTFOdGEqi-YQ5d-Y6hvGLeacmoYp6XUlp3f0KTvNd2vizyaQJbRdo20wvu2HjXoWfJTQKjtlNRt8-nFLoH93SmiA"/>
+<div class="absolute top-4 left-4 bg-primary text-white p-2 rounded">
+<span class="material-symbols-outlined">electrical_services</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Ingeniería Eléctrica</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Soluciones integrales en alta tensión e instalaciones industriales. Priorizamos la seguridad operativa y el cumplimiento normativo riguroso.
+                        </p>
+<ul class="mb-8 space-y-2 text-on-surface-variant text-caption font-caption">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Sistemas de Alta Tensión</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Mantenimiento Industrial</li>
+</ul>
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+                            Ver más <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Paneles Solares -->
+<article class="service-card group bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col custom-shadow">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A wide-angle aerial shot of a large-scale industrial rooftop covered in sleek, modern solar panel arrays. The lighting is warm golden hour sunlight reflecting off the blue glass surfaces. The background shows a clean industrial park, conveying sustainability and high return on investment. The visual style is crisp, clean, and forward-looking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoQXmM227P3hDrZlQLxG_qKXc3_64BgL46EfiGozR4k7b_F_ZJG8fcSWezG7VyhTJ0FDw5QyM4_qXrvGXyBr28Ir1PaEjq5uVEV67snJDuObWr4-p2iI952XBvTzz6_m3fKoktfagJu5kqi7-OZvoOrxddFcILxVrdhMm44YClSqpsfNZEiYn2vJggybOGmu6OVtTe4OfE3gbwI2BdQnK59pVpXQqRGM56Zc7kbqp7zZ_UkQplCRLewgbayO_bfoU63X1libW9H8g1"/>
+<div class="absolute top-4 left-4 bg-primary text-white p-2 rounded">
+<span class="material-symbols-outlined">solar_power</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Paneles Solares</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Energía sustentable diseñada para el sector industrial. Maximice su ROI y reduzca su huella de carbono con tecnología de vanguardia.
+                        </p>
+<ul class="mb-8 space-y-2 text-on-surface-variant text-caption font-caption">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Análisis de Eficiencia</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Instalación de Gran Escala</li>
+</ul>
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+                            Ver más <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Aires Acondicionados -->
+<article class="service-card group bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col custom-shadow">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Interior of a large data center or industrial facility featuring professional HVAC ductwork and cooling systems. The scene is illuminated with cool blue lighting and clean white surfaces, emphasizing temperature control and mechanical precision. The atmosphere is quiet, controlled, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmlwerczSqEhBN58DMrNeIaV1vcZzsxGxPeBhHi5IbxGPB5zP6IljWE9yxfimJmh3qlJgay4SjSBlNDJgM6Nw99PUlzLwqtR_QyADWg4yyI5dSyT1EBaFRQOFaXmD11b1GXo5qF_zKqBQg4KGIh7_PoriFkiD8oc0JufS_Oftpvh9ANu94VfA3wK38hD_b4kEJ08DPMz6sejoE8fRWJSRqGixG6My1R_v62KwZy7JvFtaECj4GpkMrebc3CxjoFDIwIuU6RZzvKDJP"/>
+<div class="absolute top-4 left-4 bg-primary text-white p-2 rounded">
+<span class="material-symbols-outlined">ac_unit</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Aires Acondicionados</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Sistemas HVAC industriales de alto rendimiento. Instalación y mantenimiento preventivo para garantizar ambientes controlados.
+                        </p>
+<ul class="mb-8 space-y-2 text-on-surface-variant text-caption font-caption">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Mantenimiento Preventivo</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Diseño de Sistemas HVAC</li>
+</ul>
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+                            Ver más <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Remodelación -->
+<article class="service-card group bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col custom-shadow">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A modern industrial office interior being renovated with structural upgrades. Sharp architectural lines, exposed brick elements, and high-end finishes. The image shows a transition from raw construction to polished corporate design. Neutral tones of grey and white with natural wood accents. Professional photography style with architectural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXgn3nwqRVXhVmwDvaLNFq9JVBX6kOg23dZdXHwchJriThYunbYfyWroLLfdtG-J-VPIHyBo3X-vkeIp2mndwRcSjX-jYIyfxLamHMcnDPbq_YE5btLYwa-EI0UB08DO_IDErjC4TAG4yCU3e8WUFp78lOA7d-bl1okp9R_72r0oyFjrjaJpo7HXqvf99qwKU3wydY62vB6hLgKDSIJnjzaTPovioGgZgQxwsnCZxA6l7nyua4E7qRggrSgII7eeZUd6hnOUY98DlF"/>
+<div class="absolute top-4 left-4 bg-primary text-white p-2 rounded">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Remodelación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Transformación estructural y actualizaciones eléctricas. Acabados modernos que integran funcionalidad y estética corporativa.
+                        </p>
+<ul class="mb-8 space-y-2 text-on-surface-variant text-caption font-caption">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Cambios Estructurales</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-accent">check_circle</span> Acabados de Alta Gama</li>
+</ul>
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+                            Ver más <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary-container text-on-primary py-20">
+<div class="px-gutter max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-6">¿Necesita un presupuesto detallado?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-10 max-w-2xl mx-auto">
+                    Utilice nuestro cotizador automático para obtener una estimación precisa en minutos.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="cotizador.html" class="bg-accent text-white px-8 py-4 rounded-lg font-bold hover:brightness-110 transition-all inline-flex items-center justify-center">
+                        Ir al Cotizador
+                    </a>
+<button class="border-2 border-outline text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-all">
+                        Contactar a un asesor
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-12">
+<div class="px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md font-bold text-on-primary dark:text-primary-fixed mb-4">
+                    Portal de Servicios
+                </div>
+<p class="font-caption text-caption text-on-primary/70">
+                    Soluciones de ingeniería y servicios industriales con los más altos estándares de calidad y seguridad en el mercado.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-6 text-on-primary">Navegación</h4>
+<ul class="space-y-3 font-body-md text-body-md">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="index.html">Inicio</a></li>
+<li><a class="text-on-primary font-bold" href="servicios.html">Servicios</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="portafolio.html">Portafolio</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="cotizador.html">Cotizador</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-6 text-on-primary">Legal</h4>
+<ul class="space-y-3 font-body-md text-body-md">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="#">Términos y Condiciones</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="#">Privacidad</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:underline transition-all" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-6 text-on-primary">Contacto</h4>
+<ul class="space-y-3 font-body-md text-body-md">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span> +52 (55) 1234 5678</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span> contacto@portalservicios.com</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">location_on</span> Ciudad de México, MX</li>
+</ul>
+</div>
+</div>
+<div class="px-gutter max-w-container-max mx-auto mt-12 pt-8 border-t border-on-primary/10 text-center">
+<p class="font-caption text-caption text-on-primary/60">
+                © 2024 Portal de Servicios y Cotizador Automático. Todos los derechos reservados.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

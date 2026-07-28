@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal de Servicios y Cotizador Automático</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#f7f9fb",
+                      "surface-tint": "#545f73",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary-container": "#c88000",
+                      "inverse-primary": "#bcc7de",
+                      "on-secondary-fixed": "#0b1c30",
+                      "on-background": "#191c1e",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-primary-container": "#8590a6",
+                      "surface-bright": "#f7f9fb",
+                      "outline-variant": "#c5c6cd",
+                      "secondary": "#505f76",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#bcc7de",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e6e8ea",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-container": "#eceef0",
+                      "on-primary": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "primary-fixed": "#d8e3fb",
+                      "on-surface": "#191c1e",
+                      "outline": "#75777d",
+                      "on-primary-fixed-variant": "#3c475a",
+                      "on-primary-fixed": "#111c2d",
+                      "tertiary-fixed": "#ffddb8",
+                      "primary": "#091426",
+                      "on-secondary-container": "#54647a",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#d0e1fb",
+                      "on-surface-variant": "#45474c",
+                      "tertiary-container": "#3c2300",
+                      "primary-container": "#1e293b",
+                      "secondary-fixed": "#d3e4fe",
+                      "surface-dim": "#d8dadc",
+                      "on-tertiary-fixed": "#2a1700",
+                      "tertiary": "#201100"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "1.5rem",
+                      "container-max": "1280px",
+                      "stack-lg": "2rem",
+                      "margin-desktop": "2.5rem",
+                      "stack-md": "1rem",
+                      "margin-mobile": "1rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "caption": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(9, 20, 38, 0.95) 0%, rgba(9, 20, 38, 0.7) 50%, rgba(9, 20, 38, 0.4) 100%);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm docked full-width top-0 sticky z-50 transition-all duration-300">
+<nav class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">Portal de Servicios</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed border-b-2 border-primary font-bold pb-1" href="index.html">Inicio</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="servicios.html">Servicios</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="portafolio.html">Portafolio</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="portal.html">Portal</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="cotizador.html">Cotizador</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all duration-200 active:scale-95 shadow-sm">
+                    Cotizar Ahora
+                </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0" data-alt="High-resolution wide shot of a massive industrial solar panel farm at dusk. Blue and grey tones dominate the engineering environment, with sleek metallic structures and glass reflections. Warm golden light from the setting sun contrasts against the dark blue professional sky. Professional, corporate, and technologically advanced atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYVn0Et470qJTMA3XbQeBl_yUbyBi2wjk-cANwXxBPle3IGBH1eWI52jNjW4x_iwowLQGKzLFj80RN80wBe5jB7cpXeH_6M5J8sPyinXixYC-La13M3OKj-f6-KQG3iXfXHPyX5zV9ec0Wm3VXeOYanXzO7LtokP8MyRjXJ2Pw4vbAtNa7J8kCBuELNs05MFE9S2b4GhXm-61IyW6FjFWak04-mvreEO_JL2trGOvEANOVORL7xoAMGw1RzsevCmfS94OUNbRhiAvb')">
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 w-full px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-md border border-primary/30 px-4 py-2 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse"></span>
+<span class="text-white font-label-md text-label-md uppercase tracking-wider">Ingeniería Certificada</span>
+</div>
+<h1 class="text-white font-headline-xl text-headline-xl leading-tight">
+                            Soluciones Inteligentes en <br/>
+<span class="text-[#f59e0b]">Ingeniería y Energía</span>
+</h1>
+<p class="text-white/80 font-body-lg text-body-lg max-w-2xl leading-relaxed">
+                            Especialistas en Electricidad, Energía Solar, Aires Acondicionados y Remodelación Profesional. Transformamos infraestructuras con precisión técnica y eficiencia moderna.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a href="cotizador.html" class="bg-[#f59e0b] text-primary px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 hover:bg-[#d98c0a] transition-all duration-300 shadow-xl active:scale-95 group">
+                                Empezar mi Cotización
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a href="servicios.html" class="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-headline-md text-headline-md flex items-center justify-center hover:bg-white/20 transition-all duration-300 active:scale-95">
+                                Nuestros Servicios
+                            </a>
+</div>
+<!-- Trust Markers -->
+<div class="grid grid-cols-3 gap-8 pt-12 border-t border-white/10">
+<div>
+<p class="text-white font-headline-lg text-headline-lg">15+</p>
+<p class="text-white/60 font-caption text-caption uppercase tracking-widest">Años de Exp.</p>
+</div>
+<div>
+<p class="text-white font-headline-lg text-headline-lg">500+</p>
+<p class="text-white/60 font-caption text-caption uppercase tracking-widest">Proyectos</p>
+</div>
+<div>
+<p class="text-white font-headline-lg text-headline-lg">100%</p>
+<p class="text-white/60 font-caption text-caption uppercase tracking-widest">Garantizado</p>
+</div>
+</div>
+</div>
+<!-- Floating Card Effect -->
+<div class="hidden lg:block lg:col-span-5 relative">
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl animate-float">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#f59e0b]/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#f59e0b]">solar_power</span>
+</div>
+<div>
+<h3 class="text-white font-label-md text-label-md">Eficiencia Solar</h3>
+<div class="w-48 h-2 bg-white/10 rounded-full mt-2">
+<div class="w-4/5 h-full bg-[#f59e0b] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-blue-400/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-400">ac_unit</span>
+</div>
+<div>
+<h3 class="text-white font-label-md text-label-md">Climatización HVAC</h3>
+<div class="w-48 h-2 bg-white/10 rounded-full mt-2">
+<div class="w-2/3 h-full bg-blue-400 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-primary/40 rounded-xl border border-white/5 mt-4">
+<p class="text-white/70 font-caption text-caption italic">"La precisión en el cotizador automático nos ahorró 3 semanas de trámites."</p>
+<p class="text-[#f59e0b] font-label-md text-label-md mt-2">— Ing. Roberto Silva</p>
+</div>
+</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-[#f59e0b]/10 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brief Service Grid -->
+<section class="py-24 bg-white">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-primary font-headline-lg text-headline-lg mb-4">Servicios de Ingeniería de Alto Impacto</h2>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">Ofrecemos soluciones integrales bajo estándares internacionales de calidad y seguridad industrial.</p>
+</div>
+<a class="text-primary font-label-md text-label-md flex items-center gap-2 hover:underline" href="servicios.html">Ver todos los servicios <span class="material-symbols-outlined">trending_flat</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group p-8 bg-background border border-outline-variant hover:border-primary transition-all duration-300 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Redes Eléctricas</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Instalación y mantenimiento de tableros industriales y cableado estructural.</p>
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md cursor-pointer">
+                            Saber más <span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group p-8 bg-background border border-outline-variant hover:border-primary transition-all duration-300 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">solar_power</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Sistemas Solares</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Dimensionamiento e integración de paneles fotovoltaicos para ahorro energético.</p>
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md cursor-pointer">
+                            Saber más <span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group p-8 bg-background border border-outline-variant hover:border-primary transition-all duration-300 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">construction</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Remodelaciones</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6">Gestión de proyectos de infraestructura y acabados profesionales corporativos.</p>
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md cursor-pointer">
+                            Saber más <span class="material-symbols-outlined text-sm">add</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full py-12 px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">engineering</span>
+<span class="text-headline-md font-headline-md font-bold text-on-primary dark:text-primary-fixed">Portal de Servicios</span>
+</div>
+<p class="text-on-primary/70 font-body-md text-body-md">
+                Líderes en soluciones técnicas y energéticas para el sector comercial e industrial.
+            </p>
+</div>
+<div>
+<h4 class="text-on-primary font-label-md text-label-md font-bold mb-6 uppercase tracking-wider">Enlaces Rápidos</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="index.html">Inicio</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="servicios.html">Servicios</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="portafolio.html">Portafolio</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="cotizador.html">Cotizador</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-primary font-label-md text-label-md font-bold mb-6 uppercase tracking-wider">Servicios</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="servicios.html">Energía Solar</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="servicios.html">Instalaciones Eléctricas</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="servicios.html">HVAC & Aires</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors font-body-md text-body-md hover:underline" href="servicios.html">Mantenimiento</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-primary font-label-md text-label-md font-bold mb-6 uppercase tracking-wider">Contacto</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-on-primary/80 font-body-md text-body-md">Distrito Tecnológico, Torre A, Oficina 502.</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-on-primary/80 font-body-md text-body-md">contacto@portaldeservicios.com</span>
+</li>
+<li class="pt-4 flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary/20 flex items-center justify-center hover:bg-white/10 transition-colors" href="portal.html">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-on-primary/20 flex items-center justify-center hover:bg-white/10 transition-colors" href="index.html">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 pt-12 border-t border-on-primary/10 mt-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-caption text-caption text-on-primary/60">© 2024 Portal de Servicios y Cotizador Automático. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="font-caption text-caption text-on-primary/60 hover:text-on-primary" href="index.html">Términos y Condiciones</a>
+<a class="font-caption text-caption text-on-primary/60 hover:text-on-primary" href="servicios.html">Privacidad</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'h-16');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('shadow-md', 'h-16');
+                header.classList.add('h-20');
+            }
+        });
+    </script>
+</body></html>

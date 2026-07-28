@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cotizador Inteligente | Portal de Servicios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7f9fb",
+                        "surface-tint": "#545f73",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#c88000",
+                        "inverse-primary": "#bcc7de",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-background": "#191c1e",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#8590a6",
+                        "surface-bright": "#f7f9fb",
+                        "outline-variant": "#c5c6cd",
+                        "secondary": "#505f76",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bcc7de",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "primary-fixed": "#d8e3fb",
+                        "on-surface": "#191c1e",
+                        "outline": "#75777d",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "on-primary-fixed": "#111c2d",
+                        "tertiary-fixed": "#ffddb8",
+                        "primary": "#091426",
+                        "on-secondary-container": "#54647a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "on-surface-variant": "#45474c",
+                        "tertiary-container": "#3c2300",
+                        "primary-container": "#1e293b",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed": "#2a1700",
+                        "tertiary": "#201100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "container-max": "1280px",
+                        "stack-lg": "2rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .industrial-grid {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="bg-surface sticky top-0 z-50 shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
+<div class="text-headline-md font-headline-md font-bold text-primary">Portal de Servicios</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="index.html">Inicio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="servicios.html">Servicios</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="portafolio.html">Portafolio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="portal.html">Portal</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-md text-label-md" href="cotizador.html">Cotizador</a>
+</div>
+<button class="bg-[#f59e0b] text-white px-6 py-2.5 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+                Cotizar Ahora
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-screen py-12 industrial-grid">
+<div class="max-w-4xl mx-auto px-gutter">
+<!-- Progress Header -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest">Paso 1 de 4</span>
+<h1 class="font-headline-lg text-headline-lg mt-1 text-primary">Configurador de Proyecto</h1>
+</div>
+<div class="text-right hidden md:block">
+<span class="text-on-surface-variant font-label-md text-label-md">Progreso: 25%</span>
+</div>
+</div>
+<!-- Progress Bar Component -->
+<div class="w-full h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-[#f59e0b] transition-all duration-700 ease-out" id="progress-fill" style="width: 25%"></div>
+</div>
+</div>
+<!-- Multi-Step Form Container -->
+<div class="bg-white border border-outline-variant rounded-xl shadow-[0_4px_6px_-1px_rgb(30_41_59/0.05)] overflow-hidden">
+<!-- Step 1: Seleccione su Servicio -->
+<section class="p-8 md:p-12" id="step-1">
+<div class="text-center mb-10">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Seleccione su Servicio</h2>
+<p class="text-on-surface-variant max-w-md mx-auto">Elija la categoría principal para la cual requiere una estimación técnica detallada.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Service Card: Solar -->
+<button class="group border border-outline-variant hover:border-primary p-6 rounded-lg text-left transition-all hover:bg-surface-container-low focus:ring-2 focus:ring-primary outline-none" onclick="nextStep(2)">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">solar_power</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary mb-1">Energía Solar</h3>
+<p class="text-caption font-caption text-on-surface-variant">Paneles fotovoltaicos y almacenamiento.</p>
+</button>
+<!-- Service Card: Electrical -->
+<button class="group border border-outline-variant hover:border-primary p-6 rounded-lg text-left transition-all hover:bg-surface-container-low focus:ring-2 focus:ring-primary outline-none" onclick="nextStep(2)">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">electrical_services</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary mb-1">Eléctrico</h3>
+<p class="text-caption font-caption text-on-surface-variant">Instalaciones industriales y mantenimiento.</p>
+</button>
+<!-- Service Card: AC -->
+<button class="group border border-outline-variant hover:border-primary p-6 rounded-lg text-left transition-all hover:bg-surface-container-low focus:ring-2 focus:ring-primary outline-none" onclick="nextStep(2)">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary mb-1">Climatización</h3>
+<p class="text-caption font-caption text-on-surface-variant">HVAC, ductería y control térmico.</p>
+</button>
+<!-- Service Card: Remodeling -->
+<button class="group border border-outline-variant hover:border-primary p-6 rounded-lg text-left transition-all hover:bg-surface-container-low focus:ring-2 focus:ring-primary outline-none" onclick="nextStep(2)">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-lg mb-4 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary mb-1">Remodelación</h3>
+<p class="text-caption font-caption text-on-surface-variant">Adecuación de espacios corporativos.</p>
+</button>
+</div>
+</section>
+<!-- Step 2: Detalles del Proyecto (Hidden by default) -->
+<section class="p-8 md:p-12 hidden" id="step-2">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Detalles del Proyecto</h2>
+<p class="text-on-surface-variant">Proporcione las especificaciones técnicas para un cálculo preciso.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Área Total del Proyecto (m²)</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Ej: 500" type="number"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Consumo Eléctrico Promedio (kWh)</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Ej: 2500" type="number"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Número de Unidades/Equipos</label>
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden">
+<button class="p-3 bg-surface-container hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-full text-center border-none focus:ring-0" type="number" value="1"/>
+<button class="p-3 bg-surface-container hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-surface-tint text-5xl mb-4">analytics</span>
+<h4 class="font-label-md text-label-md text-primary mb-2">Estimación en Tiempo Real</h4>
+<p class="text-caption font-caption text-on-surface-variant">Nuestro algoritmo analiza variables de costo local y eficiencia industrial mientras usted completa los campos.</p>
+</div>
+</div>
+<div class="mt-12 flex justify-between">
+<button class="px-6 py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-surface-container transition-all" onclick="nextStep(1)">Anterior</button>
+<button class="px-10 py-3 bg-[#f59e0b] text-white font-label-md text-label-md rounded-lg hover:opacity-90 transition-all" onclick="nextStep(3)">Siguiente Paso</button>
+</div>
+</section>
+<!-- Step 3: Información de Contacto (Hidden by default) -->
+<section class="p-8 md:p-12 hidden" id="step-3">
+<div class="mb-8">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Información de Contacto</h2>
+<p class="text-on-surface-variant">Donde desea recibir su presupuesto detallado y análisis de ingeniería.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Nombre de la Empresa</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" placeholder="Industrial Corp S.A." type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Correo Electrónico Corporativo</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" placeholder="ingenieria@empresa.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Teléfono de Contacto</label>
+<input class="w-full p-3 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary outline-none" placeholder="+52 00 0000 0000" type="tel"/>
+</div>
+</div>
+<div class="mt-12 flex justify-between">
+<button class="px-6 py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-surface-container transition-all" onclick="nextStep(2)">Anterior</button>
+<button class="px-10 py-3 bg-[#f59e0b] text-white font-label-md text-label-md rounded-lg hover:opacity-90 transition-all" onclick="nextStep(4)">Generar Presupuesto</button>
+</div>
+</section>
+<!-- Step 4: Resumen de Presupuesto (Hidden by default) -->
+<section class="p-8 md:p-12 hidden" id="step-4">
+<div class="mb-10 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-success/10 text-emerald-600 rounded-full mb-4">
+<span class="material-symbols-outlined text-4xl">check_circle</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Cálculo Finalizado</h2>
+<p class="text-on-surface-variant">Basado en sus requerimientos, este es el resumen técnico preliminar.</p>
+</div>
+<!-- Budget Breakdown Table-style -->
+<div class="space-y-4 mb-10">
+<div class="flex justify-between items-center py-4 border-b border-outline-variant">
+<span class="text-on-surface-variant">Inversión Estimada (CAPEX)</span>
+<span class="font-headline-md text-headline-md text-primary">$12,450.00 USD</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant">
+<span class="text-on-surface-variant">Retorno de Inversión (ROI Solar)</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md">3.4 Años</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant">
+<span class="text-on-surface-variant">Ahorro Mensual Proyectado</span>
+<span class="text-emerald-600 font-bold">$340.00 USD</span>
+</div>
+</div>
+<!-- Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+<div class="bg-surface p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span class="font-label-md text-label-md">Eficiencia Energética</span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">Mejora del 15% mediante optimización de componentes industriales.</p>
+</div>
+<div class="bg-surface p-4 border border-outline-variant rounded-lg">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="font-label-md text-label-md">Garantía Técnica</span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">Soporte técnico premium incluido por 24 meses posteriores a la obra.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-full py-4 bg-[#f59e0b] text-white font-headline-md text-headline-md rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                            Descargar Presupuesto en PDF
+                        </button>
+<button class="text-on-surface-variant font-label-md text-label-md hover:underline py-2" onclick="window.location.reload()">Realizar otra cotización</button>
+</div>
+</section>
+</div>
+<!-- Contextual Help -->
+<div class="mt-8 flex items-center gap-4 p-4 bg-primary-container rounded-lg text-on-primary-container">
+<span class="material-symbols-outlined">info</span>
+<p class="text-caption font-caption">Este cotizador ofrece una estimación basada en promedios del mercado industrial. Para un presupuesto vinculante, se requiere una visita técnica de campo.</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+<div class="w-full py-12 px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md font-bold text-on-primary mb-4">Portal de Servicios</div>
+<p class="text-caption font-caption text-on-primary/70">Soluciones industriales de alta ingeniería y servicios técnicos automatizados.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase tracking-wider">Enlaces Rápidos</h4>
+<ul class="space-y-2">
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors hover:underline font-body-md text-body-md" href="index.html">Inicio</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors hover:underline font-body-md text-body-md" href="servicios.html">Servicios</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors hover:underline font-body-md text-body-md" href="cotizador.html">Cotizador</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase tracking-wider">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors hover:underline font-body-md text-body-md" href="#">Términos y Condiciones</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary transition-colors hover:underline font-body-md text-body-md" href="#">Privacidad</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md mb-4 uppercase tracking-wider">Contacto</h4>
+<p class="text-body-md text-on-primary/80 mb-2">contacto@portalservicios.com</p>
+<p class="text-body-md text-on-primary/80">+1 (800) INDUSTRIAL</p>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-6">
+<div class="max-w-container-max mx-auto px-gutter text-center text-caption font-caption text-on-primary/50">
+                © 2024 Portal de Servicios y Cotizador Automático. Todos los derechos reservados.
+            </div>
+</div>
+</footer>
+<script>
+        function nextStep(step) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+            
+            // Show requested section
+            const target = document.getElementById(`step-${step}`);
+            target.classList.remove('hidden');
+            target.classList.add('animate-in', 'fade-in', 'duration-500');
+
+            // Update Progress Bar
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.querySelector('.text-primary.font-label-md');
+            
+            const progressValues = {
+                1: '25%',
+                2: '50%',
+                3: '75%',
+                4: '100%'
+            };
+
+            progressFill.style.width = progressValues[step];
+            progressText.innerText = `Paso ${step} de 4`;
+
+            // Scroll to top of the card smoothly
+            window.scrollTo({
+                top: document.querySelector('main').offsetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        // Simple button active state visual feedback
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>
